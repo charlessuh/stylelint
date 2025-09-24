@@ -596,9 +596,13 @@ declare namespace stylelint {
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: OneOrMany<'first-nested' | 'after-comment' | 'after-declaration'>;
+				except: OneOrMany<'after-block' | 'after-comment' | 'after-declaration' | 'first-nested'>;
 				ignore: OneOrMany<
-					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block'
+					| 'after-block'
+					| 'after-comment'
+					| 'after-declaration'
+					| 'first-nested'
+					| 'inside-single-line-block'
 				>;
 			}
 		>;

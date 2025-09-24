@@ -234,6 +234,58 @@ a {
 }
 ```
 
+#### `"after-block"`
+
+Reverse the primary option for declarations that follow a block.
+
+Shared-line comments do not affect this option.
+
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "except": ["after-block"] }]
+}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  & b {}
+
+  top: 5px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  & b {} /* comment */
+
+  top: 5px;
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  & b {}
+  top: 5px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  & b {} /* comment */
+  top: 5px;
+}
+```
+
 #### `"first-nested"`
 
 Reverse the primary option for declarations that are nested and the first child of their parent node.
@@ -341,6 +393,37 @@ a {
   text-decoration: none;
 
   bottom: 15px;
+  top: 15px;
+}
+```
+
+#### `"after-block"`
+
+Ignore declarations that follow an block.
+
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "ignore": ["after-block"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  & b {}
+  top: 15px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  & b {}
+
   top: 15px;
 }
 ```
